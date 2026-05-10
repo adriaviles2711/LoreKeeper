@@ -20,7 +20,11 @@
   --color-rating: #f59e0b;
 
   /* Sombras */
+  --shadow-glow-off: 0 0 4px theme(--color-bg-primary);
   --shadow-glow: 0 0 4px theme('colors.orange.400');
+
+  /* Colores de marca */
+  --color-primary: theme('colors.orange.400');
 }
 
 /* Estilos Globales (Base) */
@@ -30,7 +34,9 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     @apply font-display;
     letter-spacing: 0.03em;
   }
