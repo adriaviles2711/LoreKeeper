@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Tipografías */
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Bebas Neue', system-ui, sans-serif;
+
+  /* Fondos */
+  --color-bg-primary: #0e1117;
+  --color-bg-secondary: #161b24;
+
+  /* Texto */
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #64748b;
+
+  /* Feedback */
+  --color-error: #f43f5e;
+  --color-success: #10b981;
+  --color-rating: #f59e0b;
+
+  /* Sombras */
+  --shadow-glow: 0 0 4px theme('colors.orange.400');
+}
+
+/* Estilos Globales (Base) */
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-body antialiased;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+    letter-spacing: 0.03em;
+  }
+}

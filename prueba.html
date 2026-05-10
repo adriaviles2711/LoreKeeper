@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoreKeeper UI Proposal</title>
+    <style>
+        /* Variables para mantener consistencia (lo que luego serán tus CSS Modules) */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* LA CUADRÍCULA (El corazón del layout) */
+        .movie-grid {
+            display: grid;
+            /* Creamos columnas que se adaptan solas: mínimo 200px, máximo 1 fracción */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LA TARJETA (Lo que será tu componente MovieCard) */
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .poster-placeholder {
+            width: 100%;
+            aspect-ratio: 2 / 3; /* Proporción estándar de poster de cine */
+            background: linear-gradient(45deg, #334155, #1e293b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-title {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: var(--accent);
+            border: none;
+            color: var(--bg-color);
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+
+        .btn-add:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .rating {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LOREKEEPER</div>
+        <nav>
+            <span style="color: var(--text-dim)">Peliculas</span> | 
+            <span style="color: var(--text-dim)">Libros (Próximamente)</span>
+        </nav>
+    </header>
+
+    <main class="movie-grid" id="grid">
+        <!-- Las películas se generarán aquí con JS -->
+    </main>
+
+    <script>
+        // Simulamos datos de la API de TMDB
+        const dummyMovies = [
+            { title: "Interstellar", year: 2014, rating: 8.7 },
+            { title: "Dune: Part Two", year: 2024, rating: 8.9 },
+            { title: "The Dark Knight", year: 2008, rating: 9.0 },
+            { title: "Inception", year: 2010, rating: 8.8 },
+            { title: "Blade Runner 2049", year: 2017, rating: 8.0 },
+            { title: "Pulp Fiction", year: 1994, rating: 8.9 }
+        ];
+
+        const grid = document.getElementById('grid');
+
+        // Generamos los elementos para ver cómo queda la cuadrícula
+        dummyMovies.forEach(movie => {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+            card.innerHTML = `
+                <div class="poster-placeholder">POSTER</div>
+                <div class="movie-info">
+                    <h3 class="movie-title">${movie.title}</h3>
+                    <div class="movie-meta">
+                        <span>${movie.year}</span>
+                        <span class="rating">★ ${movie.rating}</span>
+                    </div>
+                    <button class="btn-add">+ Watchlist</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
