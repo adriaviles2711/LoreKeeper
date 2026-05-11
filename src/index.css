@@ -21,7 +21,7 @@
 
   /* Sombras */
   --shadow-glow-off: 0 0 4px theme(--color-bg-primary);
-  --shadow-glow: 0 0 4px theme('colors.orange.400');
+  --shadow-glow: 0 0 4px theme(--color-primary);
 
   /* Colores de marca */
   --color-primary: theme('colors.orange.400');

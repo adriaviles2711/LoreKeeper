@@ -2,7 +2,7 @@ import { Plus } from "lucide-react";
 
 function MediaCard() {
   return (
-    <div className="bg-bg-secondary border-2 border-solid border-transparent w-xs rounded-xl shadow-glow-off cursor-pointer m-5 overflow-hidden group transition-all hover:shadow-glow hover:border-primary">
+    <div className="bg-bg-secondary border-2 border-solid border-bg-secondary w-xs rounded-xl shadow-glow-off cursor-pointer m-5 overflow-hidden group transition-all hover:shadow-glow hover:border-primary">
       <div className="w-full aspect-5/3 overflow-hidden relative">
         <img
           src="https://m.media-amazon.com/images/I/91Zwg6D7fYL.jpg"
